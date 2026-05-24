@@ -5,8 +5,8 @@ services:
     plan: free
     region: oregon
     runtime: python
-    buildCommand: "pip install -r django_backend/requirements.txt --no-input"
-    startCommand: "cd django_backend && export DJANGO_SETTINGS_MODULE=nce_backend_tmp.settings && export PYTHONPATH=$(pwd) && gunicorn nce_backend_tmp.wsgi:application --bind 0.0.0.0:$PORT --workers 3 --timeout 120"
+    buildCommand: "pip install -r requirements.txt --no-input"
+    startCommand: "export DJANGO_SETTINGS_MODULE=nce_backend_tmp.settings && export PYTHONPATH=$(pwd) && gunicorn nce_backend_tmp.wsgi:application --bind 0.0.0.0:$PORT --workers 3 --timeout 120"
 
   # Worker (Celery + Beat)
   - type: worker
@@ -14,5 +14,5 @@ services:
     plan: free
     region: oregon
     runtime: python
-    buildCommand: "pip install -r django_backend/requirements.txt --no-input"
-    startCommand: "cd django_backend && export DJANGO_SETTINGS_MODULE=nce_backend_tmp.settings && export PYTHONPATH=$(pwd) && ./render-start-celery.sh"
+    buildCommand: "pip install -r requirements.txt --no-input"
+    startCommand: "export DJANGO_SETTINGS_MODULE=nce_backend_tmp.settings && export PYTHONPATH=$(pwd) && ./render-start-celery.sh"
