@@ -1,12 +1,12 @@
 services:
-  # Frontend (Vite) — serve le dossier dist
+  # Frontend (Vite preview)
   - type: web
     name: nce-frontend
     plan: free
     region: oregon
     runtime: node
-    buildCommand: "cd site-nceOutsouring && npm install --no-fund --no-audit && npm run build"
-    startCommand: "cd site-nceOutsouring && node ./node_modules/vite/bin/vite.js preview --host 0.0.0.0 --port $PORT"
+    buildCommand: "cd site-nceOutsourcing && npm install --no-fund --no-audit && npm run build"
+    startCommand: "cd site-nceOutsourcing && node ./node_modules/vite/bin/vite.js preview --host 0.0.0.0 --port $PORT"
 
   # Backend (Django + Gunicorn)
   - type: web
@@ -14,7 +14,7 @@ services:
     plan: free
     region: oregon
     runtime: python
-    buildCommand: "cd django_backend && pip install -r requirements.txt --no-input"
+    buildCommand: "pip install -r django_backend/requirements.txt --no-input"
     startCommand: "./django_backend/render-start-web.sh"
 
   # Worker (Celery + Beat)
@@ -23,5 +23,5 @@ services:
     plan: free
     region: oregon
     runtime: python
-    buildCommand: "cd django_backend && pip install -r requirements.txt --no-input"
+    buildCommand: "pip install -r django_backend/requirements.txt --no-input"
     startCommand: "./django_backend/render-start-celery.sh"
