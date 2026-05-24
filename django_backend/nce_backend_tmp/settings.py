@@ -59,7 +59,9 @@ SECRET_KEY = "django-insecure-7h$)%=5q!rp_5sc0u1j%=l3^qn-nb*=j46yth$bf%m73)57!^0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+_allowed_hosts_raw = os.environ.get("ALLOWED_HOSTS", "").strip()
+# Format attendu: "example.com,.onrender.com" (séparées par des virgules)
+ALLOWED_HOSTS = [h.strip() for h in _allowed_hosts_raw.split(",") if h.strip()] or ["*"]
 
 
 # Application definition
