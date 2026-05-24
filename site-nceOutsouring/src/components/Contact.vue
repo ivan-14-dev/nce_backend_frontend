@@ -148,9 +148,11 @@ const whatsappHref = computed(() => {
   return digits ? `https://wa.me/${digits}` : ''
 })
 
+const backendUrl = (import.meta.env.VITE_BACKEND_URL || '').replace(/\/$/, '')
+
 async function loadContactInfo() {
   try {
-    const res = await fetch('/api/contact-info/')
+    const res = await fetch(`${backendUrl}/api/contact-info/`)
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
     const data = await res.json()
     contactInfo.value = {
@@ -183,7 +185,7 @@ async function envoyerFormulaire() {
       message: `${entrepriseLine}${formulaire.value.message}`.trim(),
     }
 
-    const res = await fetch('/api/contact/', {
+    const res = await fetch(`${backendUrl}/api/contact/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
