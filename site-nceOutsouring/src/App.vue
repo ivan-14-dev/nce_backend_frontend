@@ -67,10 +67,10 @@ onMounted(loadContactInfo)
                 <span>📍</span> Yaoundé, Cameroun
               </li>
               <li class="flex items-center gap-2">
-                <span>📞</span> {{ whatsappPhone || '+237 —' }}
+                <span>📞</span> {{ whatsappPhone || '+237 692 25 04 35' }}
               </li>
               <li class="flex items-center gap-2">
-                <span>✉️</span> {{ contactInfo.email || '—' }}
+                <span>✉️</span> {{ contactInfo.email || 'contact@nceoutsourcing.com' }}
               </li>
             </ul>
           </div>

@@ -77,7 +77,7 @@
             </button>
             
             <a 
-              href="https://wa.me/33768665712" 
+              href="https://wa.me/00237692250435" 
               target="_blank"
               class="flex-1 bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition shadow-md flex items-center justify-center gap-2"
             >
@@ -106,7 +106,7 @@ const formulaire = ref({
 
 // Fonction appelée quand on clique sur "Envoyer la demande"
 const envoyerFormulaire = () => {
-  alert(`Merci ${formulaire.value.nom} ! Votre demande pour l'entreprise ${formulaire.value.entreprise} a été pré-enregistrée. (C'est ici que ton collègue back-end interviendra pour envoyer le vrai mail !)`)
+  alert(`Merci ${formulaire.value.nom} ! Votre demande pour l'entreprise ${formulaire.value.entreprise} a été pré-enregistrée. `)
   
   // On vide le formulaire après l'envoi
   formulaire.value = { nom: '', entreprise: '', email: '', telephone: '', message: '' }
